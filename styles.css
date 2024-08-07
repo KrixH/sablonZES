@@ -1,5 +1,6 @@
+/* Globális alapértelmezett stílusok */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Alapértelmezett betűtípus */
     margin: 0;
     padding: 0;
     background-repeat: no-repeat;
@@ -7,53 +8,101 @@ body {
     background-size: cover;
     background-color: #000000d5; /* Sötét színárnyalatú háttér */
     color: #fff; /* Világos színű szöveg a kontraszt növelése érdekében */
-    h1, h2, h3, h4 {
-        text-align: center;
-    }
-    
+    display: flex;
+    justify-content: center; /* Középre igazítja a container-t vízszintesen */
+    align-items: center; /* Középre igazítja a container-t függőlegesen, ha a body magassága meg van határozva */
+    min-height: 100vh; /* Biztosítja, hogy a body teljes magasságát lefedje */
+    text-align: center; /* Középre igazítja a szöveget */
+    transition: background-color 0.3s ease; /* Simább háttérszín átmenet */
 }
+
+/* Konténer stílusok */
 .container {
-    max-width: 800px;
+    max-width: 1200px; /* Nagyobb szélesség */
+    width: 90%; /* Szélesség beállítása */
     margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0); /* Láthatatlan */
+    border-radius: 10px; /* Kerekített sarkok a konténernek */
+    transition: box-shadow 0.3s ease; /* Simább árnyék animáció */
 }
 
-footer .copyright{
+
+/* Lábjegyzet stílusok */
+footer .copyright {
     text-align: center;
+    margin-top: 20px;
+    font-weight: bold; /* Félkövér szöveg a láblécre */
 }
 
+/* Táblázat stílusok */
 .tables {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: center; /* Középre igazítja a táblázatokat */
+    gap: 20px; /* Távolság a táblázatok között */
+    flex-wrap: wrap; /* Lehetővé teszi, hogy a táblázatok sorokra törjenek kisebb képernyőkön */
 }
 
 .data-table {
     border-collapse: collapse;
-    width: 45%;
+    width: 100%; /* Az asztal teljes szélességet kitölti a szülő elemén belül */
+    max-width: 550px; /* Max szélesség a táblázatokhoz */
+    margin-bottom: 20px; /* Távolság a táblázatok között */
+    font-family: 'Roboto', sans-serif; /* Egységes betűtípus a táblázathoz */
+    transition: transform 0.3s ease; /* Finom animáció a táblázat mozgásához */
 }
 
+.data-table:hover {
+    transform: translateY(-5px); /* Finom emelkedés az egérkurzor felett */
+}
+
+/* Táblázat cellák stílusai */
 .data-table th, .data-table td {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
+    font-weight: bold; /* Félkövér szöveg a táblázat celláiban */
+    transition: background-color 0.3s ease; /* Simább háttérszín átmenet a cellákhoz */
 }
 
 .data-table th {
     background-color: #f2f2f2;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Biztosítja, hogy a fejléc mindig a többi tartalom fölött legyen */
 }
 
 .data-table tr {
     background-color: #000000;
 }
 
+.data-table tr:hover {
+    background-color: #333333; /* Finom háttérszín változás a sorokra az egérkurzor felett */
+}
+
 .data-table td {
     text-align: center;
 }
 
+/* Keresőmező stílusai */
 #searchInput {
     text-align: center;
-    width: 70%;
+    width: 100%; /* Keresőmező teljes szélességet kitölti a szülő elemén belül */
+    max-width: 600px; /* Max szélesség a keresőmezőhöz */
     padding: 10px;
     margin-bottom: 25px;
+    border: 1px solid #ddd; /* Kisebb keret a keresőmezőhöz */
+    border-radius: 5px; /* Kerekített sarkok a keresőmezőn */
+    background-color: #333; /* Háttérszín a keresőmezőhöz */
+    color: #fff; /* Szöveg szín */
+    font-family: 'Roboto', sans-serif; /* Betűtípus a keresőmezőben */
+    font-weight: bold; /* Félkövér szöveg a keresőmezőben */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Simább háttérszín és keretszín átmenet */
+}
+
+#searchInput:focus {
+    background-color: #444; /* Háttérszín változás fókusz esetén */
+    border-color: #fff; /* Keretszín változás fókusz esetén */
+    outline: none; /* Eltávolítja a keresőmező fókusz körvonalát */
 }
